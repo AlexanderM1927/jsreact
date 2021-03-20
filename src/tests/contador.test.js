@@ -22,7 +22,7 @@ describe('Pruebas sobre el componente contador',()=>{
 })
 
 
-test('Busando parrafo en el componente', ()=>{
+  test('Busando parrafo en el componente', ()=>{
 
     const wrapper = shallow(<Contador propNum={0} />)
     const textoparrado = wrapper.find('p').text()
@@ -32,24 +32,38 @@ test('Busando parrafo en el componente', ()=>{
     
     //expect(wrapper).toMatchSnapshot()
 
-})
+  })
 
-test('Traer button',() => {
+  test('Traer button',() => {
     const wrapper = shallow(<Contador propNum={10} />)
-    const btn1 = wrapper.find('button').at(0)
-    console.log(btn1.html())
+    const btn0 = wrapper.find('button').at(0)
+    console.log(btn0.html())
   })
 
 
   test('Simular click boton suma',() => {
     const wrapper = shallow(<Contador propNum={10} />)
-    const btn1 = wrapper.find('button').at(0).simulate('click')
+    wrapper.find('button').at(0).simulate('click')
     const contando = wrapper.find('h2').text().trim()
     expect(contando).toBe('11')
   
   })
+
+  test('Simular click boton resta',() => {
+    const wrapper = shallow(<Contador propNum={10} />)
+    wrapper.find('button').at(1).simulate('click')
+    const contando = wrapper.find('h2').text().trim()
+    expect(contando).toBe('9')
   
+  })
+
+  test('Simular click boton reset',() => {
+    const wrapper = shallow(<Contador propNum={10} />)
+    wrapper.find('button').at(2).simulate('click')
+    const contando = wrapper.find('h2').text().trim()
+    expect(contando).toBe('10')
   
+  })
 
 
 })
