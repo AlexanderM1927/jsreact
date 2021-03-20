@@ -1,9 +1,8 @@
+//Leonardo Bolaños García 1826808
+import Contador from './contador'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Contador from './counter';
 
-ReactDOM.render(
-    <Contador propText="Alex"/>,
-    document.getElementById('root')
-);
+const divRoot = document.querySelector('#root');
 
+ReactDOM.render(<Contador name="Leonardo Bolaños" propNum={10} />, divRoot);
